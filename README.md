@@ -22,10 +22,10 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 ![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
 
 ## Author ✒️
-Cristopher Ricardo Escalante Hallasi
+**Cristopher Ricardo Escalante Hallasi**
 
 * [cristopherescalante@gmail.com](cristopherescalante@gmail.com)
-* [LinkedIn](linkedin.com/in/cristopherescalante)
+* [LinkedIn](https://www.linkedin.com/in/cristopherescalante)
 
 ## Installation 
 
