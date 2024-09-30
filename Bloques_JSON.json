@@ -1,0 +1,468 @@
+[
+    {
+        "id": "5188856256caaec0",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7427b2bacc3f6b4c",
+        "type": "mqtt in",
+        "z": "5188856256caaec0",
+        "name": "",
+        "topic": "soil_data",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "7d9d2a53c37cf99e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "ace65df5f0491831",
+                "c410aba647b6d162"
+            ]
+        ]
+    },
+    {
+        "id": "ace65df5f0491831",
+        "type": "function",
+        "z": "5188856256caaec0",
+        "name": "function 1",
+        "func": "var temp ={};\nvar hum = {}\nvar tasmota ={};\n\nvar led1 = {};\nvar led2 = {};\n\nvar array = msg.payload.split(',');\n    temp.payload = parseFloat(array[0].slice(0,5)), \n    hum.payload = parseFloat(array[1].slice(0,5));\n    \nif (temp.payload >= 25 || hum.payload >= 2568) {\n    tasmota.payload = 1;\n    if (temp.payload >= 25){\n        led1.payload = true;\n    }\n    else{\n        led1.payload = false;\n    }\n    if (hum.payload >=2568){\n        led2.payload = true;\n    }\n    else{\n        led2.payload = false; \n    }\n}\nelse {\n    tasmota.payload = 0;\n    led1.payload = false;\n    led2.payload = false;\n}\nreturn [temp,led1,tasmota, hum, led2];\n",
+        "outputs": 5,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "de5463f31d84fe50",
+                "8fb5d26db95db204"
+            ],
+            [
+                "7bfcb7254873c7d4"
+            ],
+            [
+                "e2b698ac613263f3",
+                "b4ca37f46ad2a12d",
+                "35d3a231fddf233b"
+            ],
+            [
+                "25fe9e195b63d11c"
+            ],
+            [
+                "c847339c4520ca9a"
+            ]
+        ]
+    },
+    {
+        "id": "c410aba647b6d162",
+        "type": "debug",
+        "z": "5188856256caaec0",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7bfcb7254873c7d4",
+        "type": "ui_led",
+        "z": "5188856256caaec0",
+        "order": 0,
+        "group": "c1e1c5280a278e57",
+        "width": "6",
+        "height": "2",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 650,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "de5463f31d84fe50",
+        "type": "ui_gauge",
+        "z": "5188856256caaec0",
+        "name": "",
+        "group": "c1e1c5280a278e57",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c847339c4520ca9a",
+        "type": "ui_led",
+        "z": "5188856256caaec0",
+        "order": 0,
+        "group": "3bd5c2f72bf6667b",
+        "width": "6",
+        "height": "2",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 650,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f79a15986b877b8a",
+        "type": "ui_gauge",
+        "z": "5188856256caaec0",
+        "name": "",
+        "group": "3bd5c2f72bf6667b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 850,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e2b698ac613263f3",
+        "type": "mqtt out",
+        "z": "5188856256caaec0",
+        "name": "",
+        "topic": "cmnd/tasmota_projetofinal/POWER",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5948aa971bb4c946",
+        "x": 740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8fb5d26db95db204",
+        "type": "debug",
+        "z": "5188856256caaec0",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a275228e51c33f35",
+        "type": "debug",
+        "z": "5188856256caaec0",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "25fe9e195b63d11c",
+        "type": "range",
+        "z": "5188856256caaec0",
+        "minin": "1200",
+        "maxin": "3000",
+        "minout": "100",
+        "maxout": "0",
+        "action": "scale",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 660,
+        "y": 440,
+        "wires": [
+            [
+                "a275228e51c33f35",
+                "f79a15986b877b8a"
+            ]
+        ]
+    },
+    {
+        "id": "e9f8e6c12cdec98f",
+        "type": "ui_text",
+        "z": "5188856256caaec0",
+        "group": "4c42aa63a3de4b74",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Valvula",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 840,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a4d63c6e086ddbd0",
+        "type": "ui_led",
+        "z": "5188856256caaec0",
+        "order": 0,
+        "group": "4c42aa63a3de4b74",
+        "width": "6",
+        "height": "2",
+        "label": "",
+        "labelPlacement": "right",
+        "labelAlignment": "center",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 830,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b4ca37f46ad2a12d",
+        "type": "function",
+        "z": "5188856256caaec0",
+        "name": "function 2",
+        "func": "var electro ={};\nvar text = {};\nif(msg.payload==1){\n    electro.payload = true;\n    text.payload =\"REGANDO...\"\n}\nif(msg.payload==0){\n    electro.payload = false;\n    text.payload = \"Valvula fechada...\"\n}\nreturn [electro,text];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 280,
+        "wires": [
+            [
+                "a4d63c6e086ddbd0"
+            ],
+            [
+                "e9f8e6c12cdec98f"
+            ]
+        ]
+    },
+    {
+        "id": "35d3a231fddf233b",
+        "type": "debug",
+        "z": "5188856256caaec0",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7d9d2a53c37cf99e",
+        "type": "mqtt-broker",
+        "name": "hive_lectura",
+        "broker": "c2881a8ac93240d0a5845937e12a4499.s2.eu.hivemq.cloud",
+        "port": "0",
+        "tls": "",
+        "clientid": "node_red_lectura",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c1e1c5280a278e57",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "dc5571d367b8bf5b",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3bd5c2f72bf6667b",
+        "type": "ui_group",
+        "name": "Humidade",
+        "tab": "dc5571d367b8bf5b",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5948aa971bb4c946",
+        "type": "mqtt-broker",
+        "name": "tasmota_envio",
+        "broker": "c2881a8ac93240d0a5845937e12a4499.s2.eu.hivemq.cloud",
+        "port": "0",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4c42aa63a3de4b74",
+        "type": "ui_group",
+        "name": "Estado Atual",
+        "tab": "dc5571d367b8bf5b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dc5571d367b8bf5b",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
