@@ -1,5 +1,5 @@
 # Remote-plant-monitoring-with-MQQT-and-two-ESP32s
-![Imagen del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/IMAGEN-DEL-PROYECTO.jpg?raw=true)
+![Imagen del proyecto](https://github.com/CristopherEscalante/Remote-plant-monitoring-with-MQQT-and-two-ESP32s/blob/main/Images_READ_ME/Explicacion-Proyecto.png)
 
 ## Description 📑
 
