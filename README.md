@@ -17,9 +17,10 @@ During the project on the MQTT broker, I gained knowledge about the available te
 ## Vista previa del proyecto
 Si quieres hechas un vistazo al proyecto, te recomiendo:
 
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
+![Captura del proyecto](https://github.com/CristopherEscalante/Remote-plant-monitoring-with-MQQT-and-two-ESP32s/blob/main/Images_READ_ME/Config_Tasmota.png)
+![Captura del proyecto](https://github.com/CristopherEscalante/Remote-plant-monitoring-with-MQQT-and-two-ESP32s/blob/main/Images_READ_ME/Grafico_Bloques_Node_Red.png)
+![Captura del proyecto](https://github.com/CristopherEscalante/Remote-plant-monitoring-with-MQQT-and-two-ESP32s/blob/main/Images_READ_ME/Dashboard_funcionando.png)
+![Captura del proyecto](https://github.com/CristopherEscalante/Remote-plant-monitoring-with-MQQT-and-two-ESP32s/blob/main/Images_READ_ME/Imagen_Sensores.png)
 
 ## Author ✒️
 **Cristopher Ricardo Escalante Hallasi**
