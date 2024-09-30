@@ -24,7 +24,7 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 ## Author ✒️
 Cristopher Ricardo Escalante Hallasi
 
-* [micorreo@midominio.com](cristopherescalante@gmail.com)
+* [cristopherescalante@gmail.com](cristopherescalante@gmail.com)
 * [LinkedIn](linkedin.com/in/cristopherescalante)
 
 ## Installation 
